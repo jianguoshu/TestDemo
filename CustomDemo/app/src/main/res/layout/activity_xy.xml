@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.example.douzi.customdemo.xy.XYActivity">
+
+    <FrameLayout
+        android:layout_width="300px"
+        android:layout_height="300px"
+        android:background="#009900">
+
+        <TextView
+            android:id="@+id/tv_one"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="100px"
+            android:layout_marginTop="100px"
+            android:width="100px"
+            android:height="100px"
+            android:background="#000099"
+            android:gravity="center"
+            android:text="one" />
+    </FrameLayout>
+
+    <FrameLayout
+        android:layout_width="300px"
+        android:layout_height="300px"
+        android:background="#000099">
+
+        <TextView
+            android:id="@+id/tv_two"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="100px"
+            android:layout_marginTop="100px"
+            android:width="100px"
+            android:height="100px"
+            android:background="#009900"
+            android:gravity="center"
+            android:text="two" />
+    </FrameLayout>
+
+    <FrameLayout
+        android:layout_width="300px"
+        android:layout_height="300px"
+        android:background="#009900">
+
+        <FrameLayout
+            android:id="@+id/tv_three"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="100px"
+            android:layout_marginTop="100px"
+            android:background="#990000">
+
+            <TextView
+                android:id="@+id/tv_three_child"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:width="100px"
+                android:height="100px"
+                android:background="#000099"
+                android:gravity="center"
+                android:text="three" />
+        </FrameLayout>
+    </FrameLayout>
+
+    <TextView
+        android:id="@+id/tv_reset"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:background="#000099" />
+
+
+</LinearLayout>
