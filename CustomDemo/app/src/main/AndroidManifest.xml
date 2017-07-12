@@ -17,7 +17,9 @@
             </intent-filter>
         </activity>
         <activity android:name=".splittouch.SplitTouchActivity" />
-        <activity android:name=".xy.XYActivity"></activity>
+        <activity android:name=".xy.XYActivity" />
+        <activity android:name=".recyclerview.RecyclerViewActivity" />
+        <activity android:name=".BaseActivity"></activity>
     </application>
 
 </manifest>

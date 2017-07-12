@@ -1,14 +1,13 @@
 package com.example.douzi.customdemo.xy;
 
-import android.app.Activity;
 import android.graphics.Rect;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 
+import com.example.douzi.customdemo.BaseActivity;
 import com.example.douzi.customdemo.R;
 
-public class XYActivity extends Activity {
+public class XYActivity extends BaseActivity {
     private View one;
     private View two;
     private View three;
