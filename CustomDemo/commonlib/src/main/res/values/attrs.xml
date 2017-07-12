@@ -1,0 +1,26 @@
+<resources>
+
+    <declare-styleable name="CollapsibleTextView">
+        <attr name="expend_text" format="string" />
+        <attr name="collapse_text" format="string" />
+        <attr name="ellipsis_symbol" format="string" />
+        <attr name="collapsible_by_hand" format="boolean" />
+        <attr name="collapse_switcher_color" format="color|reference" />
+           
+    </declare-styleable>
+
+    <declare-styleable name="FlowLayout">
+        <attr name="childFullVisual" format="boolean"></attr>
+        <attr name="maxBlankWidth" format="dimension"></attr>
+        <attr name="maxLine" format="integer"></attr>
+        <attr name="gravity">
+            <flag name="left" value="0x0001" />
+            <flag name="right" value="0x0002" />
+            <flag name="center_horizontal" value="0x0004" />
+            <flag name="top" value="0x0010" />
+            <flag name="bottom" value="0x0020" />
+            <flag name="center_vertical" value="0x0030" />
+            <flag name="center" value="0034" />
+        </attr>
+    </declare-styleable>
+</resources>
