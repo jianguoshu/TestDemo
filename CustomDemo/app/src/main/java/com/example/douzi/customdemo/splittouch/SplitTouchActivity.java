@@ -13,15 +13,27 @@
 
 package com.example.douzi.customdemo.splittouch;
 
+import android.app.Activity;
+import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.MotionEvent;
 
 import com.example.douzi.customdemo.BaseActivity;
 import com.example.douzi.customdemo.R;
+import com.example.douzi.customdemo.recyclerview.RecyclerViewActivity;
 
 public class SplitTouchActivity extends BaseActivity {
 
     private SplitTouchFilter splitTouchFilter;
+
+    public static void startAct(Context context) {
+        Intent intent = new Intent(context, SplitTouchActivity.class);
+        if (!(context instanceof Activity)) {
+            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        }
+        context.startActivity(intent);
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

@@ -1,12 +1,31 @@
 package com.example.douzi.customdemo;
 
 import android.os.Bundle;
+import android.view.View;
 
-public class MainActivity extends BaseActivity {
+import com.example.douzi.customdemo.recyclerview.RecyclerViewActivity;
+import com.example.douzi.customdemo.xy.XYActivity;
+
+public class MainActivity extends BaseActivity implements View.OnClickListener {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        this.findViewById(R.id.tv_btn_xy).setOnClickListener(this);
+        this.findViewById(R.id.tv_btn_recycler).setOnClickListener(this);
+    }
+
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()) {
+            case R.id.tv_btn_xy:
+                XYActivity.startAct(this);
+                break;
+            case R.id.tv_btn_recycler:
+                RecyclerViewActivity.startAct(this);
+                break;
+        }
     }
 }

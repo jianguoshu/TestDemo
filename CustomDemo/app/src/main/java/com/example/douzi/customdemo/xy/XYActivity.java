@@ -1,13 +1,26 @@
 package com.example.douzi.customdemo.xy;
 
+import android.app.Activity;
+import android.content.Context;
+import android.content.Intent;
 import android.graphics.Rect;
 import android.os.Bundle;
 import android.view.View;
 
 import com.example.douzi.customdemo.BaseActivity;
 import com.example.douzi.customdemo.R;
+import com.example.douzi.customdemo.recyclerview.RecyclerViewActivity;
 
 public class XYActivity extends BaseActivity {
+
+    public static void startAct(Context context) {
+        Intent intent = new Intent(context, XYActivity.class);
+        if (!(context instanceof Activity)) {
+            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        }
+        context.startActivity(intent);
+    }
+
     private View one;
     private View two;
     private View three;
