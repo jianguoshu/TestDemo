@@ -68,11 +68,13 @@
         </FrameLayout>
     </FrameLayout>
 
-    <TextView
+    <com.example.douzi.customdemo.xy.CustomTextView
         android:id="@+id/tv_reset"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:background="#000099" />
+        android:layout_width="300px"
+        android:layout_height="300px"
+        android:background="#000099"
+        android:gravity="center"
+        android:text="haha" />
 
 
 </LinearLayout>

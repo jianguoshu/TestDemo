@@ -6,4 +6,32 @@
     android:layout_height="match_parent"
     tools:context="com.example.douzi.customdemo.splittouch.SplitTouchActivity">
 
+    <com.example.douzi.customdemo.splittouch.LogLinearLayout
+        android:id="@+id/ll_log_one"
+        android:layout_width="match_parent"
+        android:splitMotionEvents="true"
+        android:layout_height="match_parent">
+
+
+        <com.example.douzi.customdemo.splittouch.LogLinearLayout
+            android:id="@+id/ll_log_two"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            >
+
+            <com.example.douzi.customdemo.splittouch.LogTextView
+                android:id="@+id/tv_log_one"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:background="#009900" />
+
+            <com.example.douzi.customdemo.splittouch.LogTextView
+                android:id="@+id/tv_log_two"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:background="#000099" />
+        </com.example.douzi.customdemo.splittouch.LogLinearLayout>
+
+    </com.example.douzi.customdemo.splittouch.LogLinearLayout>
 </RelativeLayout>

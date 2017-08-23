@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -28,7 +29,7 @@ public class RecyclerViewActivity extends BaseActivity {
     private List<String> mText;
     private List<Channel> mChannels;
     private GridLayoutManager mGridLayoutManager;
-    private int firstUnSelectedIndex;
+//    private int firstUnSelectedIndex;
 
     public static void startAct(Context context) {
         Intent intent = new Intent(context, RecyclerViewActivity.class);
@@ -102,7 +103,7 @@ public class RecyclerViewActivity extends BaseActivity {
 
         mText.add(0, "我的频道");
         mChannels.add(0, new Channel("我的频道", false, 0, TYPE_TITLE));
-        firstUnSelectedIndex = 0;
+        int firstUnSelectedIndex = 0;
         for (int i = 0; i < mChannels.size(); i++) {
             Channel channel = mChannels.get(i);
             if (channel.isSelected == false && channel.type == TYPE_NORMAL) {
@@ -130,6 +131,12 @@ public class RecyclerViewActivity extends BaseActivity {
             }
         });
         mRecyclerView.setLayoutManager(mGridLayoutManager);
+        RecyclerView.ItemAnimator itemAnimator = new DefaultItemAnimator();
+//        itemAnimator.setAddDuration(1500);
+//        itemAnimator.setChangeDuration(1500);
+//        itemAnimator.setMoveDuration(1500);
+//        itemAnimator.setRemoveDuration(1500);
+        mRecyclerView.setItemAnimator(itemAnimator);
         mAdapter = new RecyclerView.Adapter<ChannelHolder>() {
 
             @Override
@@ -154,16 +161,21 @@ public class RecyclerViewActivity extends BaseActivity {
                                 mChannels.add(channel);
                                 mText.remove(position);
                                 mText.add(text);
-                                firstUnSelectedIndex--;
+//                                firstUnSelectedIndex--;
+                                mAdapter.notifyItemMoved(position, mChannels.size() - 1);
                             } else {
-                                channel.isSelected = true;
-                                mChannels.remove(channel);
-                                mText.remove(position);
-                                mChannels.add(firstUnSelectedIndex, channel);
-                                mText.add(firstUnSelectedIndex, text);
-                                firstUnSelectedIndex++;
+                                int firstUnSelectedIndex = findFirstUnselectedPositon();
+                                if (firstUnSelectedIndex >=0) {
+                                    channel.isSelected = true;
+                                    mChannels.remove(channel);
+                                    mText.remove(position);
+                                    mChannels.add(firstUnSelectedIndex, channel);
+                                    mText.add(firstUnSelectedIndex, text);
+                                    mAdapter.notifyItemMoved(position, firstUnSelectedIndex);
+                                }
+//                                firstUnSelectedIndex++;
                             }
-                            notifyDataSetChanged();
+//                            notifyDataSetChanged();
                         }
                     });
                 }
@@ -190,5 +202,18 @@ public class RecyclerViewActivity extends BaseActivity {
         public ChannelHolder(View itemView) {
             super(itemView);
         }
+    }
+
+    private int findFirstUnselectedPositon() {
+        int length = mChannels.size();
+        if (length > 0) {
+            for (int i = length - 1; i >=0; i--) {
+                Channel channel = mChannels.get(i);
+                if (channel.type == TYPE_TITLE) {
+                    return i;
+                }
+            }
+        }
+        return -1;
     }
 }

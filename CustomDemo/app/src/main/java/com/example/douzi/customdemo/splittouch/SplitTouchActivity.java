@@ -25,7 +25,13 @@ import com.example.douzi.customdemo.recyclerview.RecyclerViewActivity;
 
 public class SplitTouchActivity extends BaseActivity {
 
-    private SplitTouchFilter splitTouchFilter;
+    public static final String TAG = SplitTouchActivity.class.getSimpleName();
+    private LogTextView logOne;
+    private LogTextView logTwo;
+    private LogLinearLayout logOneContainer;
+    private LogLinearLayout logTwoContainer;
+
+//    private SplitTouchFilter splitTouchFilter;
 
     public static void startAct(Context context) {
         Intent intent = new Intent(context, SplitTouchActivity.class);
@@ -40,15 +46,26 @@ public class SplitTouchActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_split_touch);
 
-        splitTouchFilter = new SplitTouchFilter();
+//        splitTouchFilter = new SplitTouchFilter();
+
+        logOneContainer = (LogLinearLayout) this.findViewById(R.id.ll_log_one);
+        logTwoContainer = (LogLinearLayout) this.findViewById(R.id.ll_log_two);
+
+        logOne = (LogTextView) this.findViewById(R.id.tv_log_one);
+        logTwo = (LogTextView) this.findViewById(R.id.tv_log_two);
+
+        logOneContainer.setLogAble(false);
+        logTwoContainer.setLogAble(false);
+        logOne.setLogAble(false);
+        logTwo.setLogAble(true);
     }
 
-    @Override
-    public boolean dispatchTouchEvent(MotionEvent ev) {
-        if (splitTouchFilter.isNeedFilter(ev)) {
-            return true;
-        } else {
-            return super.dispatchTouchEvent(ev);
-        }
-    }
+//    @Override
+//    public boolean dispatchTouchEvent(MotionEvent ev) {
+//        if (splitTouchFilter.isNeedFilter(ev)) {
+//            return true;
+//        } else {
+//            return super.dispatchTouchEvent(ev);
+//        }
+//    }
 }
