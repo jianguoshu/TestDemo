@@ -29,7 +29,7 @@
             android:enabled="true"
             android:exported="true" />
 
-        <activity android:name=".GridLayoutTest.GridLayoutTest"></activity>
+        <activity android:name=".GridLayoutTest.GridLayoutActivity"></activity>
     </application>
 
 </manifest>
